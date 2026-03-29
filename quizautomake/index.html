@@ -1421,12 +1421,18 @@ function showResult() {
 
 // ═══ CHECKOUT ═══
 function goToCheckout(product) {
-  // 🔧 Substitua pelos links reais do Hotmart/Kiwify
   const links = {
     olheiras: 'https://pay.kiwify.com.br/ooA8iUG',
     makedozero: 'https://pay.kiwify.com.br/8bAzmNf'
   };
-  window.open(links[product], '_blank');
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'checkout_click',
+    product: product
+  });
+  setTimeout(function() {
+    window.open(links[product], '_blank');
+  }, 300);
 }
 
 // ═══ FAQ ═══
