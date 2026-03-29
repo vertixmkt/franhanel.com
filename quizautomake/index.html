@@ -938,15 +938,9 @@
       Analisei suas respostas e tenho algo importante para te dizer. Mas antes, me conta quem vai receber esse resultado:
     </p>
     <form id="lead-form">
-      <div class="form-row">
-        <div class="form-group">
-          <label>Nome</label>
-          <input type="text" id="field-nome" placeholder="Seu nome">
-        </div>
-        <div class="form-group">
-          <label>Sobrenome</label>
-          <input type="text" id="field-sobrenome" placeholder="Seu sobrenome">
-        </div>
+      <div class="form-group">
+        <label>Nome completo</label>
+        <input type="text" id="field-nome" placeholder="Seu nome completo">
       </div>
       <div class="form-group">
         <label>Seu melhor e-mail</label>
@@ -1295,14 +1289,12 @@ function show(id) {
 // ═══ LEAD SUBMIT ═══
 function submitLead() {
   const nomeEl      = document.getElementById('field-nome');
-  const sobrenomeEl = document.getElementById('field-sobrenome');
   const emailEl     = document.getElementById('field-email');
   const foneEl      = document.getElementById('field-fone');
   const errorEl     = document.getElementById('form-error');
   const btnEl       = document.getElementById('btn-lead-submit');
 
   const nome      = nomeEl.value.trim();
-  const sobrenome = sobrenomeEl.value.trim();
   const email     = emailEl.value.trim();
   const phone     = foneEl.value.trim();
 
@@ -1313,12 +1305,7 @@ function submitLead() {
     nomeEl.focus();
     return;
   }
-  if (!sobrenome) {
-    errorEl.textContent = '👆 Por favor, preencha o seu sobrenome.';
-    errorEl.style.display = 'block';
-    sobrenomeEl.focus();
-    return;
-  }
+
   if (!email || !/\S+@\S+\.\S+/.test(email)) {
     errorEl.textContent = '👆 Por favor, insira um e-mail válido.';
     errorEl.style.display = 'block';
@@ -1342,8 +1329,8 @@ function submitLead() {
   userName = nome;
 
   // 🔧 INTEGRAÇÃO: envie os dados para seu CRM/e-mail aqui
-  // fetch('/api/leads', { method:'POST', body: JSON.stringify({name: nome, lastName: sobrenome, email, phone, scores, answers}) });
-  console.log('Lead capturado:', { name: nome, lastName: sobrenome, email, phone, scores, answers });
+  // fetch('/api/leads', { method:'POST', body: JSON.stringify({name: nome, email, phone, scores, answers}) });
+  console.log('Lead capturado:', { name: nome, email, phone, scores, answers });
 
   setTimeout(function() {
     showResult();
