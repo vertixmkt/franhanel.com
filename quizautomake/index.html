@@ -692,6 +692,35 @@
     margin-top: auto;
   }
 
+  .offer-price-installment {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 2px;
+    font-weight: 700;
+  }
+
+  .offer-price-installment sup {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    vertical-align: super;
+    line-height: 0;
+  }
+
+  .offer-price-installment-label {
+    font-size: 12px;
+    color: var(--mid);
+    margin-bottom: 6px;
+  }
+
+  .offer-price-full {
+    font-size: 13px;
+    color: var(--light);
+    margin-bottom: 2px;
+  }
+
   .offer-price {
     font-family: 'Playfair Display', serif;
     font-size: 36px;
@@ -706,6 +735,21 @@
     font-weight: 600;
     vertical-align: super;
     line-height: 0;
+  }
+
+  .bonus-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 100px;
+    margin-left: 6px;
+    vertical-align: middle;
+    flex-shrink: 0;
   }
 
   .offer-price-note {
@@ -994,9 +1038,9 @@
           <li>O passo a passo completo anti-olheira</li>
           <li>Acesso Vitalício</li>
         </ul>
-        <div class="offer-price-old">De R$57</div>
-        <div class="offer-price"><sup>R$</sup>27</div>
-        <div class="offer-price-note">ou até 6x de R$ 5,07 · acesso imediato e vitalício</div>
+        <div class="offer-price-installment"><sup>6x de R$</sup>5,07</div>
+        <div class="offer-price-installment-label">ou à vista:</div>
+        <div class="offer-price-full">R$ 27,00 · acesso imediato e vitalício</div>
         <button id="btn-checkout-olheiras" class="btn-card btn-card-outline" onclick="goToCheckout('olheiras')">Quero resolver as olheiras →</button>
       </div>
 
@@ -1008,12 +1052,12 @@
         <div class="offer-card-desc">Transformação completa: do zero absoluto a uma make que dura, fica bonita e você consegue repetir sozinha.</div>
         <ul class="offer-card-includes">
           <li>10 Aulas Práticas para fazer uma make completa, incluindo a aula "Olheiras, Nunca Mais!"</li>
-          <li>Acesso à comunidade "Achadinhos da Fran" com ofertas diárias de produtos de maquiagem nos maiores marketplaces do Brasil</li>
-          <li>Acesso à plataforma "Hanel Academy" com materiais exclusivos: Como identificar o seu tipo de pele, Guia de Pincéis, Formatos de Rostos, Catálogo de Produtos, Formatos de Olhos</li>
+          <li>Acesso à comunidade "Achadinhos da Fran" com ofertas diárias de produtos de maquiagem nos maiores marketplaces do Brasil <span class="bonus-tag">Bônus</span></li>
+          <li>Acesso à plataforma "Hanel Academy" com materiais exclusivos: Como identificar o seu tipo de pele, Guia de Pincéis, Formatos de Rostos, Catálogo de Produtos, Formatos de Olhos <span class="bonus-tag">Bônus</span></li>
         </ul>
-        <div class="offer-price-old">De R$197</div>
-        <div class="offer-price"><sup>R$</sup>97</div>
-        <div class="offer-price-note">ou até 12x de R$ 10,03 · acesso imediato e vitalício</div>
+        <div class="offer-price-installment"><sup>12x de R$</sup>10,03</div>
+        <div class="offer-price-installment-label">ou à vista:</div>
+        <div class="offer-price-full">R$ 97,00 · acesso imediato e vitalício</div>
         <button id="btn-checkout-makedozero" class="btn-card btn-card-filled" onclick="goToCheckout('makedozero')">Quero a transformação completa →</button>
       </div>
     </div>
