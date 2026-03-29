@@ -692,33 +692,41 @@
     margin-top: auto;
   }
 
-  .offer-price-installment {
-    font-family: 'Playfair Display', serif;
-    font-size: 32px;
-    color: var(--dark);
-    line-height: 1;
-    margin-bottom: 2px;
-    font-weight: 700;
+  .offer-price-block {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 20px;
+    margin-bottom: 20px;
   }
 
-  .offer-price-installment sup {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 600;
-    vertical-align: super;
-    line-height: 0;
+  .offer-price-installment {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    line-height: 1;
+    margin-bottom: 8px;
   }
 
   .offer-price-installment-label {
-    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
     color: var(--mid);
-    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .offer-price-installment-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    color: var(--dark);
+    font-weight: 700;
+    line-height: 1;
   }
 
   .offer-price-full {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--light);
-    margin-bottom: 2px;
+    margin-bottom: 0;
   }
 
   .offer-price {
@@ -1038,9 +1046,13 @@
           <li>O passo a passo completo anti-olheira</li>
           <li>Acesso Vitalício</li>
         </ul>
-        <div class="offer-price-installment"><sup>6x de R$</sup>5,07</div>
-        <div class="offer-price-installment-label">ou à vista:</div>
-        <div class="offer-price-full">R$ 27,00 · acesso imediato e vitalício</div>
+        <div class="offer-price-block">
+          <div class="offer-price-installment">
+            <span class="offer-price-installment-label">6x de R$</span>
+            <span class="offer-price-installment-value">5,07</span>
+          </div>
+          <div class="offer-price-full">ou R$ 27,00 à vista · acesso imediato e vitalício</div>
+        </div>
         <button id="btn-checkout-olheiras" class="btn-card btn-card-outline" onclick="goToCheckout('olheiras')">Quero resolver as olheiras →</button>
       </div>
 
@@ -1055,9 +1067,13 @@
           <li>Acesso à comunidade "Achadinhos da Fran" com ofertas diárias de produtos de maquiagem nos maiores marketplaces do Brasil <span class="bonus-tag">Bônus</span></li>
           <li>Acesso à plataforma "Hanel Academy" com materiais exclusivos: Como identificar o seu tipo de pele, Guia de Pincéis, Formatos de Rostos, Catálogo de Produtos, Formatos de Olhos <span class="bonus-tag">Bônus</span></li>
         </ul>
-        <div class="offer-price-installment"><sup>12x de R$</sup>10,03</div>
-        <div class="offer-price-installment-label">ou à vista:</div>
-        <div class="offer-price-full">R$ 97,00 · acesso imediato e vitalício</div>
+        <div class="offer-price-block">
+          <div class="offer-price-installment">
+            <span class="offer-price-installment-label">12x de R$</span>
+            <span class="offer-price-installment-value">10,03</span>
+          </div>
+          <div class="offer-price-full">ou R$ 97,00 à vista · acesso imediato e vitalício</div>
+        </div>
         <button id="btn-checkout-makedozero" class="btn-card btn-card-filled" onclick="goToCheckout('makedozero')">Quero a transformação completa →</button>
       </div>
     </div>
