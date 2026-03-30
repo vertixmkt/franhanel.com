@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oferta Especial — Destrava Make</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --rose:       #C8705A;
+    --rose-light: #D4856F;
+    --rose-pale:  #FAF0ED;
+    --cream:      #FAF7F4;
+    --dark:       #1A1210;
+    --mid:        #5C4A44;
+    --light:      #9C847C;
+    --gold:       #C9A96E;
+    --gold-pale:  #FBF6EE;
+    --white:      #FFFFFF;
+    --green:      #1e8449;
+    --green-pale: #f0faf5;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* ── TOP ALERT BAR ── */
+  .alert-bar {
+    background: var(--rose);
+    color: white;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+  .alert-bar span { opacity: 0.85; font-weight: 400; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid rgba(200,112,90,0.12);
+    padding: 60px 24px 50px;
+    text-align: center;
+  }
+
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--gold-pale);
+    border: 1.5px solid rgba(201,169,110,0.4);
+    color: #8B6914;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero-wait {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(13px, 2vw, 16px);
+    color: var(--rose);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.15;
+    color: var(--dark);
+    max-width: 720px;
+    margin: 0 auto 24px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--mid);
+    max-width: 580px;
+    margin: 0 auto 40px;
+  }
+
+  /* ── VIDEO PLACEHOLDER ── */
+  .video-wrap {
+    max-width: 640px;
+    margin: 0 auto 16px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 60px rgba(26,18,16,0.12);
+    background: linear-gradient(135deg, #f2ddd8, #e8c5bc);
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--rose);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .video-wrap .play-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--rose);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    padding-left: 4px;
+  }
+
+  .video-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--light);
+    max-width: 400px;
+    margin: 0 auto 0;
+  }
+
+  /* ── MAIN CONTAINER ── */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── SECTION: PROBLEMA ── */
+  .problem-section {
+    padding: 60px 0 0;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.25;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .section-body {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--mid);
+    margin-bottom: 20px;
+  }
+
+  /* ── PAIN PILLS ── */
+  .pain-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 32px 0;
+  }
+
+  .pain-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: var(--white);
+    border: 1.5px solid rgba(200,112,90,0.15);
+    border-radius: 14px;
+    padding: 16px 20px;
+  }
+
+  .pain-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pain-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--mid);
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0;
+  }
+  .divider-line { flex: 1; height: 1px; background: rgba(200,112,90,0.2); }
+  .divider-text { font-size: 13px; color: var(--light); font-style: italic; white-space: nowrap; }
+
+  /* ── OFFER BOX ── */
+  .offer-box {
+    background: var(--white);
+    border: 2px solid var(--rose);
+    border-radius: 28px;
+    padding: 48px 44px;
+    margin: 0 0 20px;
+    position: relative;
+    box-shadow: 0 12px 60px rgba(200,112,90,0.12);
+  }
+
+  @media (max-width: 600px) {
+    .offer-box { padding: 32px 24px; }
+  }
+
+  .offer-crown {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gold);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 100px;
+    white-space: nowrap;
+  }
+
+  .offer-product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 44px);
+    color: var(--dark);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .offer-product-name em {
+    font-style: italic;
+    color: var(--rose);
+  }
+
+  .offer-product-sub {
+    text-align: center;
+    font-size: 15px;
+    color: var(--light);
+    margin-bottom: 36px;
+  }
+
+  /* ── WHAT'S INCLUDED ── */
+  .includes-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 16px;
+  }
+
+  .includes-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .includes-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--mid);
+  }
+
+  .includes-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--rose-pale);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .includes-content strong {
+    display: block;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+
+  .includes-content span {
+    font-size: 13px;
+    color: var(--light);
+  }
+
+  /* ── PRICE ── */
+  .price-block {
+    background: var(--cream);
+    border-radius: 20px;
+    padding: 28px 32px;
+    text-align: center;
+    margin-bottom: 28px;
+  }
+
+  .price-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 10px;
+  }
+
+  .price-from {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .price-from-label {
+    font-size: 13px;
+    color: var(--light);
+    font-weight: 500;
+  }
+
+  .price-from-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--light);
+    text-decoration: line-through;
+    text-decoration-color: var(--rose);
+  }
+
+  .price-parcel-pre {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--mid);
+    margin-bottom: 2px;
+  }
+
+  .price-main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2px;
+    margin-bottom: 2px;
+  }
+
+  .price-currency {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-top: 12px;
+  }
+
+  .price-value {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--dark);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .price-cents {
+    font-size: 36px;
+    vertical-align: super;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .price-parcel-post {
+    font-size: 13px;
+    color: var(--light);
+    margin-bottom: 14px;
+  }
+
+  .price-or {
+    font-size: 12px;
+    color: var(--light);
+    margin: 6px 0 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .price-cash {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--mid);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: 100px;
+    border: 1.5px solid rgba(92,74,68,0.2);
+    background: white;
+  }
+
+  /* ── URGENCY ── */
+  .urgency-box {
+    background: #fff8e6;
+    border: 1.5px solid #f0c040;
+    border-radius: 14px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #7a5c00;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  /* ── CTA BUTTONS ── */
+  .cta-yes {
+    display: block;
+    width: 100%;
+    background: var(--rose);
+    color: white;
+    border: none;
+    border-radius: 100px;
+    padding: 20px 32px;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 10px 40px rgba(200,112,90,0.35);
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+
+  .cta-yes:hover {
+    background: var(--rose-light);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 48px rgba(200,112,90,0.45);
+  }
+
+  .cta-yes small {
+    display: block;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.85;
+    margin-top: 3px;
+  }
+
+  .cta-no {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    color: var(--light);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+    padding: 8px;
+    transition: color 0.2s;
+  }
+
+  .cta-no:hover { color: var(--mid); }
+
+  /* ── GUARANTEE ── */
+  .guarantee {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    background: var(--white);
+    border: 1.5px solid rgba(200,112,90,0.15);
+    border-radius: 20px;
+    padding: 28px;
+    margin: 40px 0;
+  }
+
+  .guarantee-icon {
+    font-size: 40px;
+    flex-shrink: 0;
+  }
+
+  .guarantee-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .guarantee-text {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--mid);
+  }
+
+  /* ── FAQ ── */
+  .faq-section { padding: 48px 0 0; }
+
+  .faq-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    color: var(--dark);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .faq-item { border-bottom: 1px solid rgba(200,112,90,0.15); }
+
+  .faq-q {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--dark);
+    gap: 16px;
+    user-select: none;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 22px;
+    color: var(--rose);
+    flex-shrink: 0;
+    font-weight: 300;
+    transition: transform 0.2s;
+    line-height: 1;
+  }
+
+  .faq-q.open::after { transform: rotate(45deg); }
+
+  .faq-a {
+    display: none;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--mid);
+    padding-bottom: 20px;
+  }
+
+  .faq-a.open { display: block; }
+
+  /* ── FOOTER CTA ── */
+  .footer-cta {
+    background: var(--dark);
+    padding: 64px 24px;
+    text-align: center;
+    margin-top: 64px;
+  }
+
+  .footer-cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    color: white;
+    margin-bottom: 12px;
+  }
+
+  .footer-cta-title em { font-style: italic; color: var(--gold); }
+
+  .footer-cta-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 36px;
+  }
+
+  .footer-cta-btn {
+    display: inline-block;
+    background: var(--rose);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    padding: 18px 48px;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s;
+    box-shadow: 0 8px 32px rgba(200,112,90,0.4);
+    cursor: pointer;
+    border: none;
+  }
+
+  .footer-cta-btn:hover {
+    background: var(--rose-light);
+    transform: translateY(-2px);
+  }
+
+  .footer-no {
+    display: block;
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .footer-no:hover { color: rgba(255,255,255,0.55); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up { animation: fadeUp 0.6s ease forwards; }
+</style>
+</head>
+<body>
+
+<!-- ALERT BAR -->
+<div class="alert-bar">
+  ⚡ Oferta exclusiva — <span>disponível apenas nesta página</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="container" style="text-align:center;">
+    <div class="hero-tag">✨ Oferta especial para você</div>
+    <p class="hero-wait">Espera! Antes de acessar o seu curso…</p>
+    <h1 class="hero-title">
+      Você vai aprender do jeito certo — mas o que fazer quando a dúvida aparecer <em>de verdade?</em>
+    </h1>
+    <p class="hero-sub">
+      Vídeo-aula ensina o passo a passo. Mas quando você está na frente do espelho e trava, você precisa de alguém que te olha nos olhos e te diz exatamente o que fazer.
+    </p>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PROBLEM SECTION -->
+  <section class="problem-section">
+    <div class="section-eyebrow">O que acontece depois do curso</div>
+    <h2 class="section-title">Você vai aprender muito. Mas algumas dúvidas só surgem na prática.</h2>
+    <p class="section-body">
+      Você assiste à aula, entende tudo, anota tudo. Aí chega o momento de se maquiar e aparece uma dúvida que nenhum vídeo respondeu — porque ela é específica da sua pele, do seu rosto, dos seus produtos.
+    </p>
+
+    <div class="pain-list">
+      <div class="pain-item">
+        <div class="pain-icon">🪞</div>
+        <div class="pain-text">"Entendi a aula, mas na hora de aplicar no <strong>meu rosto</strong>, não sei por onde começar."</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">🛍️</div>
+        <div class="pain-text">"Tenho vários produtos em casa e não sei quais usar para o <strong>meu tipo de pele</strong>."</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">😩</div>
+        <div class="pain-text">"Sigo o passo a passo mas o resultado nunca fica igual ao da professora. <strong>O que estou fazendo errado?</strong>"</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-icon">⏱️</div>
+        <div class="pain-text">"Não quero ficar semanas tentando — quero alguém que <strong>resolva minha dúvida agora.</strong>"</div>
+      </div>
+    </div>
+
+    <p class="section-body">
+      Essas dúvidas têm resposta. Mas ela precisa ser personalizada — alguém que <strong>te veja, veja o seu rosto, a sua pele, os seus produtos</strong> e te diga exatamente o que fazer.
+    </p>
+  </section>
+
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-text">a solução</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- OFFER BOX -->
+  <div class="offer-box">
+    <div class="offer-crown">⭐ Sessão 1:1 ao vivo com a Fran</div>
+
+    <div style="text-align:center; margin-bottom: 36px;">
+      <p class="offer-product-name"><em>Destrava</em> Make</p>
+      <p class="offer-product-sub">1 hora · Videochamada ao vivo · Diagnóstico personalizado</p>
+    </div>
+
+    <p class="includes-title">O que acontece na sua sessão</p>
+
+    <ul class="includes-list">
+      <li>
+        <div class="includes-icon">❓</div>
+        <div class="includes-content">
+          <strong>Tira-dúvidas ao vivo</strong>
+          <span>Traga qualquer dúvida de técnica, sequência de produtos ou aplicação — a Fran responde em tempo real, adaptado para o seu caso.</span>
+        </div>
+      </li>
+      <li>
+        <div class="includes-icon">🔍</div>
+        <div class="includes-content">
+          <strong>Análise do seu rosto e pele</strong>
+          <span>A Fran avalia ao vivo o seu tipo de pele, formato de rosto e características únicas — e te diz exatamente o que funciona para você.</span>
+        </div>
+      </li>
+      <li>
+        <div class="includes-icon">💄</div>
+        <div class="includes-content">
+          <strong>Revisão da sua make em tempo real</strong>
+          <span>Se quiser, se maquia durante a chamada e a Fran dá feedback instantâneo — você sai da sessão sabendo exatamente onde ajustar.</span>
+        </div>
+      </li>
+      <li>
+        <div class="includes-icon">🛍️</div>
+        <div class="includes-content">
+          <strong>Montagem do seu kit personalizado</strong>
+          <span>A Fran indica os produtos certos para a sua pele e o seu orçamento — sem compras desnecessárias, sem desperdício.</span>
+        </div>
+      </li>
+    </ul>
+
+    <!-- PRICE -->
+    <div class="price-block">
+      <p class="price-label">Investimento exclusivo desta página</p>
+      <div class="price-from">
+        <span class="price-from-label">De</span>
+        <span class="price-from-value">R$ 497</span>
+        <span class="price-from-label">por apenas</span>
+      </div>
+      <p class="price-parcel-pre">12x de</p>
+      <div class="price-main">
+        <span class="price-currency">R$</span>
+        <span class="price-value">41<span class="price-cents">,06</span></span>
+      </div>
+      <p class="price-parcel-post">sem juros no cartão de crédito</p>
+      <p class="price-or">ou</p>
+      <span class="price-cash">R$ 397 à vista</span>
+    </div>
+
+    <!-- URGENCY -->
+    <div class="urgency-box">
+      ⚠️ <strong>Este preço é exclusivo desta página.</strong> Dentro da área de membros, o valor da consultoria é R$ 497. Ao sair, você perde esse desconto.
+    </div>
+
+    <!-- CTA YES -->
+    <a href="#checkout-destravamake" class="cta-yes" id="btn-yes-top">
+      Sim, quero minha sessão com a Fran →
+      <small>Garanto minha vaga agora · Acesso imediato ao agendamento</small>
+    </a>
+
+    <!-- CTA NO -->
+    <button class="cta-no" id="btn-no-top" onclick="declineOffer()">
+      Não, obrigada — prefiro continuar sem a sessão
+    </button>
+  </div>
+
+  <!-- GUARANTEE -->
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <h2 class="faq-title">Dúvidas frequentes</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Como funciona o agendamento?</div>
+      <div class="faq-a">O agendamento é feito a partir do <strong>8º dia após a compra</strong>. Dentro da área de membros, no módulo "Como agendar", você encontra o número do WhatsApp da Fran para combinar o melhor dia e horário para a sua sessão.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Precisa ter comprado o curso antes?</div>
+      <div class="faq-a">A sessão é mais aproveitada por quem está estudando o Make do Zero, mas não é obrigatório. A Fran adapta a sessão ao seu nível e às suas dúvidas específicas.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Por onde é feita a videochamada?</div>
+      <div class="faq-a">A sessão acontece pelo Google Meet — você recebe o link por e-mail após o agendamento. Basta ter câmera e microfone no celular ou computador.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Quanto tempo dura a sessão?</div>
+      <div class="faq-a">A sessão tem duração de 1 hora com a Fran — tempo suficiente para tirar dúvidas, receber análise personalizada e montar seu kit se necessário.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">Posso parcelar?</div>
+      <div class="faq-a">Sim! O Destrava Make pode ser parcelado em até 12x de R$ 41,06 sem juros no cartão de crédito, ou pago à vista por R$ 397.</div>
+    </div>
+  </section>
+
+</div><!-- /container -->
+
+<!-- FOOTER CTA -->
+<div class="footer-cta">
+  <div class="container">
+    <h2 class="footer-cta-title">Você vai ter a dúvida. A questão é: <em>quando?</em></h2>
+    <p class="footer-cta-sub">Garantir sua sessão agora — enquanto ainda está com desconto de lançamento — é a decisão mais inteligente que você pode tomar hoje.</p>
+    <a href="#checkout-destravamake" class="footer-cta-btn" id="btn-yes-bottom">
+      Quero minha sessão com a Fran →
+    </a>
+    <button class="footer-no" onclick="declineOffer()">Não, prefiro continuar sem a sessão</button>
+  </div>
+</div>
+
+<script>
+// ── FAQ ──
+function toggleFaq(el) {
+  const answer = el.nextElementSibling;
+  const isOpen = el.classList.contains('open');
+
+  document.querySelectorAll('.faq-q.open').forEach(q => {
+    q.classList.remove('open');
+    q.nextElementSibling.classList.remove('open');
+  });
+
+  if (!isOpen) {
+    el.classList.add('open');
+    answer.classList.add('open');
+  }
+}
+
+// ── CHECKOUT ──
+// 🔧 Substitua pelos links reais do Hotmart/Kiwify
+const CHECKOUT_URL = 'https://pay.kiwify.com.br/Dr6phUo';
+
+document.querySelectorAll('[href="#checkout-destravamake"]').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.open(CHECKOUT_URL, '_blank');
+  });
+});
+
+// ── DECLINE ──
+// 🔧 Substitua pela URL do curso comprado (área de membros)
+const MEMBERS_URL = '#area-de-membros';
+
+function declineOffer() {
+  if (confirm('Tem certeza que não quer garantir sua sessão agora?\n\nEsta oferta pode não estar disponível depois.')) {
+    window.location.href = MEMBERS_URL;
+  }
+}
+</script>
+
+</body>
+</html>
