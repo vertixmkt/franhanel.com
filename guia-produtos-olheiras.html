@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Produtos — Olheiras, Nunca Mais!</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #C8705A;
+    --rose-light: #E8967E;
+    --rose-pale: #F9EDE8;
+    --cream: #FAF7F4;
+    --dark: #1A1210;
+    --mid: #5C4A44;
+    --light: #9B8580;
+    --gold: #C9A96E;
+    --green: #4A7C6F;
+    --white: #FFFFFF;
+    --orange: #C8743A;
+    --orange-pale: #FAEEE6;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--dark);
+    color: var(--cream);
+    text-align: center;
+    padding: 20px 20px 18px;
+  }
+  .header-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: var(--light);
+  }
+
+  /* ── INTRO BANNER ── */
+  .intro-banner {
+    background: var(--rose-pale);
+    border-left: 3px solid var(--rose);
+    margin: 20px 16px;
+    padding: 16px 18px;
+    border-radius: 8px;
+  }
+  .intro-banner-title {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--rose);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .intro-steps { display: flex; flex-direction: column; gap: 10px; }
+  .intro-step { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; line-height: 1.5; color: var(--mid); }
+  .step-num {
+    background: var(--rose);
+    color: white;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .step-num.gold { background: var(--gold); }
+
+  /* ── TONE TOGGLE ── */
+  .tone-section {
+    padding: 4px 16px 20px;
+    text-align: center;
+  }
+  .tone-label {
+    font-size: 11px;
+    color: var(--light);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 10px;
+  }
+  .tone-toggle {
+    display: inline-flex;
+    background: var(--white);
+    border-radius: 50px;
+    padding: 4px;
+    border: 1px solid #E8DDD9;
+  }
+  .tone-btn {
+    padding: 9px 20px;
+    border-radius: 50px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--light);
+    transition: all 0.2s;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .tone-btn.active-rosa { background: var(--rose); color: white; box-shadow: 0 2px 8px rgba(200,112,90,0.3); }
+  .tone-btn.active-laranja { background: var(--orange); color: white; box-shadow: 0 2px 8px rgba(200,116,58,0.3); }
+  .tone-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── TIER ── */
+  .tier { margin: 4px 16px 32px; }
+  .tier-header {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #E8DDD9;
+  }
+  .tier-badge {
+    padding: 4px 14px;
+    border-radius: 50px;
+    font-size: 11px; font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .tier-badge.basico  { background: #E6F3EF; color: #2E7A61; }
+  .tier-badge.inter   { background: var(--rose-pale); color: var(--rose); }
+  .tier-badge.premium { background: #F5EFE0; color: #8A6A2A; }
+  .tier-price { font-size: 13px; color: var(--light); }
+
+  /* ── STEP GROUP ── */
+  .step-group { margin-bottom: 22px; }
+  .step-group-title {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--light);
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .step-group-title::after {
+    content: ''; flex: 1; height: 1px; background: #E8DDD9;
+  }
+
+  /* ── TONE HINT ── */
+  .tone-hint {
+    font-size: 12px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    display: none;
+    line-height: 1.5;
+  }
+  .tone-hint.rosa-hint  { background: #FCE8E4; color: #8B3D2A; border-left: 3px solid var(--rose); }
+  .tone-hint.laranja-hint { background: var(--orange-pale); color: #7A3C18; border-left: 3px solid var(--orange); }
+  .tone-hint.visible { display: block; }
+
+  /* ── PRODUCT CARD ── */
+  .product-card {
+    background: var(--white);
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #EDE5E2;
+  }
+  .product-card.tom-rosa    { border-left: 3px solid var(--rose); }
+  .product-card.tom-laranja { border-left: 3px solid var(--orange); }
+  .product-card.dimmed { opacity: 0.4; }
+
+  .product-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+  .product-name  { font-size: 14px; font-weight: 600; color: var(--dark); line-height: 1.3; }
+  .product-brand { font-size: 11px; color: var(--light); margin-top: 2px; }
+  .product-price { font-size: 14px; font-weight: 700; color: var(--rose); white-space: nowrap; flex-shrink: 0; }
+
+  .product-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .product-tag { font-size: 10px; padding: 2px 9px; border-radius: 50px; font-weight: 500; }
+  .tag-rosa    { background: #FCE8E4; color: #C8705A; }
+  .tag-laranja { background: var(--orange-pale); color: #A85020; }
+  .tag-fran    { background: #F5EFE0; color: #8A6A2A; }
+  .tag-neutro  { background: #EEF0F2; color: #52606E; }
+
+  .product-note { font-size: 12px; color: var(--mid); margin-bottom: 10px; line-height: 1.5; font-style: italic; }
+
+  .product-links { display: flex; gap: 7px; flex-wrap: wrap; }
+  .link-btn {
+    padding: 6px 13px;
+    border-radius: 50px;
+    font-size: 11px; font-weight: 600;
+    text-decoration: none;
+    border: 1.5px solid;
+    transition: opacity 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.02em;
+  }
+  .link-btn:hover { opacity: 0.7; }
+  .link-amazon  { border-color: #E47911; color: #E47911; }
+  .link-sephora { border-color: #1A1210; color: #1A1210; }
+  .link-beleza  { border-color: var(--rose); color: var(--rose); }
+  .link-epoca   { border-color: #6D44B8; color: #6D44B8; }
+  .link-mercado { border-color: #1473E6; color: #1473E6; }
+
+  /* ── DICA CARD ── */
+  .dica-card {
+    background: #F5EFE0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    border: 1px solid #E0D4B0;
+  }
+  .dica-card-title { font-size: 12px; font-weight: 700; color: #8A6A2A; margin-bottom: 4px; }
+  .dica-card-text  { font-size: 13px; color: var(--mid); line-height: 1.5; }
+
+  /* ── DIVIDER ── */
+  .tier-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #DDD, transparent);
+    margin: 0 16px 28px;
+  }
+
+  /* ── FINAL NOTE ── */
+  .final-note {
+    margin: 0 16px 48px;
+    background: var(--dark);
+    color: var(--cream);
+    border-radius: 14px;
+    padding: 22px 20px;
+    text-align: center;
+  }
+  .final-note-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-style: italic;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .final-note-text { font-size: 13px; color: #BBADA8; line-height: 1.65; }
+
+  /* ── PRICE DISCLAIMER ── */
+  .price-disclaimer {
+    text-align: center;
+    font-size: 11px;
+    color: var(--light);
+    padding: 0 16px 24px;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (min-width: 480px) {
+    .header-title { font-size: 26px; }
+    .product-links { flex-wrap: nowrap; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-eyebrow">Bônus exclusivo · Olheiras, Nunca Mais!</div>
+  <div class="header-title">Guia de Produtos por Orçamento</div>
+  <div class="header-sub">Tudo que você precisa para aplicar O Truque do Blush</div>
+</div>
+
+<!-- INTRO -->
+<div class="intro-banner">
+  <div class="intro-banner-title">O que você vai precisar</div>
+  <div class="intro-steps">
+    <div class="intro-step">
+      <div class="step-num">1</div>
+      <div><strong>Produto de correção de cor</strong> — blush cremoso, batom ou corretor colorido no tom rosado ou laranjado. Deve ser <strong>cremoso</strong> (não pode ser pó). É o passo que ninguém ensina e que muda tudo.</div>
+    </div>
+    <div class="intro-step">
+      <div class="step-num">2</div>
+      <div><strong>Corretivo</strong> — de boa cobertura, no tom da sua base. É aqui que vale investir um pouco mais se puder.</div>
+    </div>
+    <div class="intro-step">
+      <div class="step-num gold">✦</div>
+      <div><strong>Pincel chanfrado pequeno</strong> (opcional) — facilita muito, mas dá pra fazer com o dedo também.</div>
+    </div>
+  </div>
+</div>
+
+<!-- TONE TOGGLE -->
+<div class="tone-section">
+  <div class="tone-label">Qual é o seu tom de pele?</div>
+  <div class="tone-toggle">
+    <button class="tone-btn active-rosa" id="btn-rosa" onclick="setTone('rosa')">
+      <span class="tone-dot" style="background:#F0C0A0"></span>
+      Clara / Média
+    </button>
+    <button class="tone-btn" id="btn-laranja" onclick="setTone('laranja')">
+      <span class="tone-dot" style="background:#8B5030"></span>
+      Bronzeada / Escura
+    </button>
+  </div>
+</div>
+
+<!-- ==================== BÁSICO ==================== -->
+<div class="tier">
+  <div class="tier-header">
+    <div class="tier-badge basico">Básico</div>
+    <div class="tier-price">até R$30 por produto</div>
+  </div>
+
+  <!-- Passo 1 -->
+  <div class="step-group">
+    <div class="step-group-title">Passo 1 — Correção de cor</div>
+
+    <div class="tone-hint rosa-hint visible" id="rh-b">
+      🌸 Para pele <strong>clara/média</strong>: tom <strong>rosa, salmão ou pêssego</strong>
+    </div>
+    <div class="tone-hint laranja-hint" id="lh-b">
+      🍊 Para pele <strong>bronzeada/escura</strong>: tom <strong>laranja, coral ou cobre</strong>
+    </div>
+
+    <div class="dica-card">
+      <div class="dica-card-title">✦ Dica da Fran — antes de comprar</div>
+      <div class="dica-card-text">Você provavelmente já tem algo em casa que serve: um blush cremoso, um batom rosinha ou laranjinha. Verifique antes de comprar. O produto cremoso que você já tem pode ser suficiente para começar hoje.</div>
+    </div>
+
+    <div class="product-card tom-rosa" data-tom="rosa">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Corretivo Colorido HB-8081</div>
+          <div class="product-brand">Ruby Rose</div>
+        </div>
+        <div class="product-price">~R$18</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-rosa">Tom salmão / rosa</span>
+        <span class="product-tag tag-neutro">Pele clara · média</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.amazon.com.br/s?k=Ruby+Rose+Corretivo+Colorido+HB-8081+salm%C3%A3o" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.belezanaweb.com.br/busca/?q=ruby+rose+corretivo+colorido+hb-8081" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://lista.mercadolivre.com.br/ruby-rose-corretivo-colorido-hb-8081" target="_blank" class="link-btn link-mercado">Mercado Livre</a>
+      </div>
+    </div>
+
+    <div class="product-card tom-laranja" data-tom="laranja">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Corretor Colorido — Tom Laranja</div>
+          <div class="product-brand">Dailus</div>
+        </div>
+        <div class="product-price">~R$15</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-laranja">Tom laranja / coral</span>
+        <span class="product-tag tag-neutro">Pele bronzeada · escura</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.amazon.com.br/s?k=Dailus+corretor+colorido+laranja" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.belezanaweb.com.br/busca/?q=dailus+corretor+colorido+laranja" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://lista.mercadolivre.com.br/dailus-corretor-colorido-laranja" target="_blank" class="link-btn link-mercado">Mercado Livre</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Passo 2 -->
+  <div class="step-group">
+    <div class="step-group-title">Passo 2 — Corretivo</div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Corretivo Líquido</div>
+          <div class="product-brand">Vult</div>
+        </div>
+        <div class="product-price">~R$18</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-neutro">Boa cobertura</span>
+        <span class="product-tag tag-neutro">Vários tons</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.amazon.com.br/s?k=Vult+Corretivo+L%C3%ADquido" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.belezanaweb.com.br/busca/?q=vult+corretivo+liquido" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://lista.mercadolivre.com.br/vult-corretivo-liquido" target="_blank" class="link-btn link-mercado">Mercado Livre</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Corretivo Líquido HB-8085</div>
+          <div class="product-brand">Ruby Rose</div>
+        </div>
+        <div class="product-price">~R$22</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-neutro">Textura cremosa</span>
+        <span class="product-tag tag-neutro">Ampla cartela</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.amazon.com.br/s?k=Ruby+Rose+Corretivo+Liquido+HB-8085" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.belezanaweb.com.br/busca/?q=ruby+rose+corretivo+hb-8085" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://lista.mercadolivre.com.br/ruby-rose-corretivo-hb-8085" target="_blank" class="link-btn link-mercado">Mercado Livre</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pincel -->
+  <div class="step-group">
+    <div class="step-group-title">Pincel — opcional</div>
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Pincel Chanfrado para Corretivo</div>
+          <div class="product-brand">Macrilan</div>
+        </div>
+        <div class="product-price">~R$20</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Formato que a Fran usa</span>
+      </div>
+      <div class="product-note">Chanfradinho pequeno — parecido com o de contorno, só que menor. Você pode usar o dedo também, funciona bem.</div>
+      <div class="product-links">
+        <a href="https://www.amazon.com.br/s?k=Macrilan+pincel+chanfrado+corretivo" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.belezanaweb.com.br/busca/?q=macrilan+pincel+chanfrado+corretivo" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tier-divider"></div>
+
+<!-- ==================== INTERMEDIÁRIO ==================== -->
+<div class="tier">
+  <div class="tier-header">
+    <div class="tier-badge inter">Intermediário</div>
+    <div class="tier-price">R$30 – R$80 por produto</div>
+  </div>
+
+  <div class="step-group">
+    <div class="step-group-title">Passo 1 — Correção de cor</div>
+
+    <div class="tone-hint rosa-hint visible" id="rh-i">
+      🌸 Para pele <strong>clara/média</strong>: tom <strong>rosa, salmão ou pêssego</strong>
+    </div>
+    <div class="tone-hint laranja-hint" id="lh-i">
+      🍊 Para pele <strong>bronzeada/escura</strong>: tom <strong>laranja, coral ou cobre</strong>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Corretivo Colorido para Olheiras</div>
+          <div class="product-brand">Quem Disse, Berenice?</div>
+        </div>
+        <div class="product-price">~R$42</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-rosa">Tom salmão</span>
+        <span class="product-tag tag-laranja">Tom coral</span>
+        <span class="product-tag tag-neutro">Específico para olheiras</span>
+      </div>
+      <div class="product-note">Disponível nos dois tons — salmão para pele clara e coral/laranja para pele bronzeada. Formulado especificamente para a região dos olhos.</div>
+      <div class="product-links">
+        <a href="https://www.belezanaweb.com.br/busca/?q=quem+disse+berenice+corretivo+colorido+olheiras" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://www.amazon.com.br/s?k=quem+disse+berenice+corretivo+colorido+olheiras" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=quem+disse+berenice+corretivo+colorido" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Color Correcting Concealer</div>
+          <div class="product-brand">NYX Professional Makeup</div>
+        </div>
+        <div class="product-price">~R$55</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-rosa">Tom rosa / pêssego</span>
+        <span class="product-tag tag-laranja">Tom laranja</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.sephora.com.br/catalogsearch/result/?q=nyx+color+correcting+concealer" target="_blank" class="link-btn link-sephora">Sephora</a>
+        <a href="https://www.amazon.com.br/s?k=NYX+color+correcting+concealer" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=nyx+color+correcting" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-group">
+    <div class="step-group-title">Passo 2 — Corretivo</div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Fit Me! Corretivo</div>
+          <div class="product-brand">Maybelline</div>
+        </div>
+        <div class="product-price">~R$38</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-neutro">Alta cobertura</span>
+        <span class="product-tag tag-neutro">Ampla cartela de tons</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.belezanaweb.com.br/busca/?q=maybelline+fit+me+corretivo" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://www.amazon.com.br/s?k=Maybelline+Fit+Me+Corretivo" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://lista.mercadolivre.com.br/maybelline-fit-me-corretivo" target="_blank" class="link-btn link-mercado">Mercado Livre</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">True Match Corretivo</div>
+          <div class="product-brand">L'Oréal Paris</div>
+        </div>
+        <div class="product-price">~R$42</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-neutro">Textura leve</span>
+        <span class="product-tag tag-neutro">Varios tons</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.belezanaweb.com.br/busca/?q=loreal+true+match+corretivo" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://www.amazon.com.br/s?k=LOreal+True+Match+Corretivo" target="_blank" class="link-btn link-amazon">Amazon</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">BT Skin Concealer</div>
+          <div class="product-brand">Bruna Tavares</div>
+        </div>
+        <div class="product-price">~R$55</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Queridinho das maquiadoras</span>
+        <span class="product-tag tag-neutro">Textura segunda pele</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.epocacosmeticos.com.br/busca?q=bruna+tavares+bt+skin+concealer" target="_blank" class="link-btn link-epoca">Época</a>
+        <a href="https://www.amazon.com.br/s?k=Bruna+Tavares+BT+Skin+Concealer" target="_blank" class="link-btn link-amazon">Amazon</a>
+        <a href="https://www.belezanaweb.com.br/busca/?q=bruna+tavares+concealer" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-group">
+    <div class="step-group-title">Pincel — opcional</div>
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Pincel Profissional Chanfrado</div>
+          <div class="product-brand">Macrilan Pro / ELF Cosmetics</div>
+        </div>
+        <div class="product-price">~R$40–50</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Formato chanfrado profissional</span>
+        <span class="product-tag tag-neutro">Pelo sintético macio</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.belezanaweb.com.br/busca/?q=macrilan+pro+pincel+corretivo+chanfrado" target="_blank" class="link-btn link-beleza">Beleza na Web</a>
+        <a href="https://www.amazon.com.br/s?k=elf+concealer+brush+chanfrado" target="_blank" class="link-btn link-amazon">Amazon</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tier-divider"></div>
+
+<!-- ==================== PREMIUM ==================== -->
+<div class="tier">
+  <div class="tier-header">
+    <div class="tier-badge premium">Premium</div>
+    <div class="tier-price">acima de R$80</div>
+  </div>
+
+  <div class="step-group">
+    <div class="step-group-title">Passo 1 — Correção de cor</div>
+
+    <div class="tone-hint rosa-hint visible" id="rh-p">
+      🌸 Para pele <strong>clara/média</strong>: tom <strong>rosa, salmão ou pêssego</strong>
+    </div>
+    <div class="tone-hint laranja-hint" id="lh-p">
+      🍊 Para pele <strong>bronzeada/escura</strong>: tom <strong>laranja, coral ou cobre</strong>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Naked Skin Color Correcting</div>
+          <div class="product-brand">Urban Decay</div>
+        </div>
+        <div class="product-price">~R$150</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-rosa">Tom pêssego / salmão</span>
+        <span class="product-tag tag-laranja">Tom laranja / coral</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.sephora.com.br/catalogsearch/result/?q=urban+decay+color+correcting" target="_blank" class="link-btn link-sephora">Sephora</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=urban+decay+color+correcting" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Colour Correcting Palette</div>
+          <div class="product-brand">MAC Cosmetics</div>
+        </div>
+        <div class="product-price">~R$120</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-rosa">Tom pêssego</span>
+        <span class="product-tag tag-laranja">Tom laranja / NW</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.sephora.com.br/catalogsearch/result/?q=mac+colour+correcting" target="_blank" class="link-btn link-sephora">Sephora</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=mac+colour+correcting+palette" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-group">
+    <div class="step-group-title">Passo 2 — Corretivo</div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Radiant Creamy Concealer</div>
+          <div class="product-brand">NARS</div>
+        </div>
+        <div class="product-price">~R$230</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Favorito das maquiadoras profissionais</span>
+        <span class="product-tag tag-neutro">Cobertura cremosa intensa</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.sephora.com.br/catalogsearch/result/?q=nars+radiant+creamy+concealer" target="_blank" class="link-btn link-sephora">Sephora</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=nars+radiant+creamy+concealer" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Magic Away Concealer</div>
+          <div class="product-brand">Charlotte Tilbury</div>
+        </div>
+        <div class="product-price">~R$260</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Alta cobertura · acabamento natural</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.sephora.com.br/catalogsearch/result/?q=charlotte+tilbury+magic+away" target="_blank" class="link-btn link-sephora">Sephora</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=charlotte+tilbury+magic+away" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">Luminous Silk Concealer</div>
+          <div class="product-brand">Giorgio Armani</div>
+        </div>
+        <div class="product-price">~R$320</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Acabamento luminoso · dura o dia todo</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.sephora.com.br/catalogsearch/result/?q=armani+luminous+silk+concealer" target="_blank" class="link-btn link-sephora">Sephora</a>
+        <a href="https://www.epocacosmeticos.com.br/busca?q=armani+luminous+silk+concealer" target="_blank" class="link-btn link-epoca">Época</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="step-group">
+    <div class="step-group-title">Pincel — opcional</div>
+    <div class="product-card">
+      <div class="product-top">
+        <div>
+          <div class="product-name">F70 Concealer Brush</div>
+          <div class="product-brand">Sigma Beauty</div>
+        </div>
+        <div class="product-price">~R$160</div>
+      </div>
+      <div class="product-tags">
+        <span class="product-tag tag-fran">✦ Chanfrado profissional · referência da indústria</span>
+      </div>
+      <div class="product-links">
+        <a href="https://www.epocacosmeticos.com.br/busca?q=sigma+f70+concealer" target="_blank" class="link-btn link-epoca">Época</a>
+        <a href="https://www.amazon.com.br/s?k=Sigma+Beauty+F70+Concealer+Brush" target="_blank" class="link-btn link-amazon">Amazon</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICE DISCLAIMER -->
+<div class="price-disclaimer">
+  * Preços aproximados, sujeitos a alteração. Consulte os valores atualizados nas lojas.
+</div>
+
+<!-- FINAL NOTE -->
+<div class="final-note">
+  <div class="final-note-title">"A técnica é mais importante do que o produto."</div>
+  <div class="final-note-text">
+    A Fran usa um blushzinho cremoso simples e consegue resultados incríveis nos clientes. Não precisa ter o produto mais caro — o segredo é O Truque do Blush: <strong style="color:#E8C080">corrigir a cor antes do corretivo</strong>. Se você já tem um blush cremoso, um batom rosinha ou laranjinho em casa, pode começar hoje mesmo.
+  </div>
+</div>
+
+<script>
+  let currentTone = 'rosa';
+
+  function setTone(tone) {
+    currentTone = tone;
+
+    // Buttons
+    const btnRosa    = document.getElementById('btn-rosa');
+    const btnLaranja = document.getElementById('btn-laranja');
+    btnRosa.className    = 'tone-btn' + (tone === 'rosa'    ? ' active-rosa'    : '');
+    btnLaranja.className = 'tone-btn' + (tone === 'laranja' ? ' active-laranja' : '');
+
+    // Hints
+    document.querySelectorAll('.rosa-hint').forEach(el => {
+      el.classList.toggle('visible', tone === 'rosa');
+    });
+    document.querySelectorAll('.laranja-hint').forEach(el => {
+      el.classList.toggle('visible', tone === 'laranja');
+    });
+
+    // Dim cards that don't match the tone
+    document.querySelectorAll('.product-card[data-tom]').forEach(card => {
+      const cardTom = card.getAttribute('data-tom');
+      card.classList.toggle('dimmed', cardTom !== tone);
+    });
+  }
+
+  // Init
+  setTone('rosa');
+</script>
+</body>
+</html>
